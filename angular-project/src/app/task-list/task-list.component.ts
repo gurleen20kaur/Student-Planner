@@ -18,4 +18,7 @@ export class TaskListComponent {
       //this.newTask = '';
     }
   }
+  removeTask(index: number): void {
+    this.tasks.splice(index, 1);
+  }
 }
