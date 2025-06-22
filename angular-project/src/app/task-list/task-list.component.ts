@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+interface Task {
+    title: string;
+    status: 'To Do' | 'Doing' | 'Done';
+    createdAt: Date;
+    dueDate?: string;
+  }
 
 @Component({
   selector: 'app-task-list',
@@ -10,12 +16,21 @@ import { CommonModule } from '@angular/common';
 })
 export class TaskListComponent {
   newTask: string = '';
-  tasks: string[] = [];
+  tasks: Task[] = [];
+  dueDate: string = new Date().toISOString().split('T')[0];
+  
 
   addTask() {
-    if (this.newTask) {
-      this.tasks.push(this.newTask.trim());
-      //this.newTask = '';
+    if (this.newTask.trim()) {
+      const task: Task = {
+        title: this.newTask.trim(),
+        status: 'To Do',
+        createdAt: new Date(),
+        dueDate: this.dueDate
+      };
+      this.tasks.push(task);
+      this.newTask = '';
+      this.dueDate = '';
     }
   }
   removeTask(index: number): void {
