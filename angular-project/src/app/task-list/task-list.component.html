@@ -4,7 +4,7 @@
 <section class="debug-box">
   <h3>Debug Info</h3>
   <p><strong>newTask:</strong> {{ newTask }}</p>
-  <p><strong>All tasks:</strong> {{ tasks }}</p>
+  <p><strong>All tasks:</strong> {{ taskTitles }}</p>
 </section>
 
 <form (ngSubmit)="addTask()">
@@ -20,24 +20,17 @@
   Add one now!
 </p>
 
-<ol *ngIf="tasks.length > 0">
+<ol *ngIf="tasks.length > 0" >
   <li *ngFor="let task of tasks; let i = index">
-    {{ task }}
-    <button onclick="removeTask()" style="margin-left: 1rem;">Remove</button>
-  </li>
-</ol>
-
-<tr *ngFor="let task of tasks; let i = index">
-  <td>{{ i + 1 }}</td>
-  <td>{{ task.title }}</td>
-  <td>
+    {{ i + 1}} {{ task.title }}
     <select [(ngModel)]="task.status">
       <option>To Do</option>
       <option>Doing</option>
       <option>Done</option>
     </select>
-  </td>
-  <td>{{ task.createdAt | date: 'shortDate' }}</td>
-  <td>{{ task.dueDate }}</td>
-</tr>
+    {{ task.createdAt | date: 'shortDate' }} {{ task.dueDate }}
+    <button (click)="removeTask(i)" style="margin-left: 1rem;">Remove</button>
+  </li>
+</ol>
+
 </body>

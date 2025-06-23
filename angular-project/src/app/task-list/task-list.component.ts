@@ -29,11 +29,16 @@ export class TaskListComponent {
         dueDate: this.dueDate
       };
       this.tasks.push(task);
-      this.newTask = '';
-      this.dueDate = '';
     }
+    this.newTask = '';
+    this.dueDate = new Date().toISOString().split('T')[0];
   }
+  
   removeTask(index: number): void {
     this.tasks.splice(index, 1);
+  }
+
+  get taskTitles(): string {
+    return this.tasks.map(t => t.title).join(', ');
   }
 }
