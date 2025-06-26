@@ -1,8 +1,8 @@
 <body>
 <h2>My Tasks</h2>
 
-<section class="debug-box">
-  <h3>Debug Info</h3>
+<section class="overview-box">
+  <h3>Overview</h3>
   <p><strong>newTask:</strong> {{ newTask }}</p>
   <p><strong>All tasks:</strong> {{ taskTitles }}</p>
 </section>
@@ -22,14 +22,14 @@
 
 <ol *ngIf="tasks.length > 0" >
   <li *ngFor="let task of tasks; let i = index">
-    {{ i + 1}} {{ task.title }}
+    {{ task.title }}
     <select [(ngModel)]="task.status">
       <option>To Do</option>
       <option>Doing</option>
       <option>Done</option>
     </select>
-    {{ task.createdAt | date: 'shortDate' }} {{ task.dueDate }}
-    <button (click)="removeTask(i)" style="margin-left: 1rem;">Remove</button>
+    {{ task.createdAt | date: 'shortDate' }}
+    <button (click)="removeTask(i)" style="margin-left: 2rem;">Remove</button>
   </li>
 </ol>
 
