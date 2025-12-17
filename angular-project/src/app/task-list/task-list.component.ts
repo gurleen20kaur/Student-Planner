@@ -13,6 +13,7 @@ interface Task {
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.css'
 })
+
 export class TaskListComponent {
   newTask: string = '';
   tasks: Task[] = [];
