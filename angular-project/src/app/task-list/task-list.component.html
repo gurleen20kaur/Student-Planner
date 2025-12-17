@@ -22,10 +22,10 @@
 <ol *ngIf="tasks.length > 0" >
   <li *ngFor="let task of tasks; let i = index">
     {{ task.title }}
-    <select [(ngModel)]="task.status">
-      <option>To Do</option>
-      <option>Doing</option>
-      <option>Done</option>
+    <select [(ngModel)]="task.status" [name]="'status-' + i">
+      <option [ngValue]="'To Do'">To Do</option>
+      <option [ngValue]="'Doing'">Doing</option>
+      <option [ngValue]="'Done'">Done</option>
     </select>
     {{ task.createdAt | date: 'shortDate' }}
     <button (click)="removeTask(i)" style="margin-left: 2rem;">Remove</button>
