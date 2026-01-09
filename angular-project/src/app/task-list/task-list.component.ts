@@ -13,9 +13,9 @@ export class TaskListComponent {
   tasks: string[] = [];
 
   addTask() {
-    if (this.newTask.trim()) {
+    if (this.newTask) {
       this.tasks.push(this.newTask.trim());
-      this.newTask = '';
+      //this.newTask = '';
     }
   }
 }

@@ -8,5 +8,10 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-project';
+  currentTab: string = 'Daily To-Do\'s';
+
+  switchTab(tab: string) {
+    this.currentTab = tab;
+  }
+
 }
