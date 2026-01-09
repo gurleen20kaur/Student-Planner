@@ -3,7 +3,10 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 interface Task {
     title: string;
+    completed: boolean;
     status: 'To Do' | 'Doing' | 'Done';
+    DueDate?: Date;
+    Priority?: 'Low' | 'Medium' | 'High';
     createdAt: Date;
   }
 
@@ -17,12 +20,17 @@ interface Task {
 export class TaskListComponent {
   newTask: string = '';
   tasks: Task[] = [];
+  newPriority = undefined;
+
   
   addTask() {
     if (this.newTask.trim()) {
       const task: Task = {
         title: this.newTask.trim(),
+        completed: false,
         status: 'To Do',
+        DueDate: undefined,
+        Priority: this.newPriority,
         createdAt: new Date(),
       };
       this.tasks.push(task);
