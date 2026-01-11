@@ -1,13 +1,14 @@
-.main {
-  text-align: center;
+main {
   padding: 2rem;
   font-family: 'Segoe UI', sans-serif;
-  background: #fdf6f0;
+  background-color: #c85858b8;
   min-height: 100vh;
+  margin: 0;
 }
 
 h1 {
-  color: #5c2d90;
+  color: #a41515;
+  text-align: center;
 }
 
 p {

@@ -42,6 +42,15 @@ export class TaskListComponent {
     this.tasks.splice(index, 1);
   }
 
+  taskDone($event: Event, t: Task) {
+    const checkbox = $event.target as HTMLInputElement;
+    if (checkbox.checked) {
+      t.status = 'Done';
+    } else {
+      t.status = 'Doing';
+    }
+  }
+
   get taskTitles(): string {
     return this.tasks.map(t => t.title).join(', ');
   }

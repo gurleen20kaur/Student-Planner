@@ -1,41 +1,45 @@
-<h2>My Tasks</h2>
+<body>
+  <h2>My Daily To-Do's</h2>
 
-<section class="overview-box">
-  <h3>Overview</h3>
-  <p><strong>newTask:</strong> {{ newTask }}</p>
-  <p><strong>All tasks:</strong> {{ taskTitles }}</p>
-</section>
+  <form (ngSubmit)="addTask()">
+    <input type="text"
+           [(ngModel)]="newTask"
+           name="task"
+           id="taskInput"
+           placeholder="Enter a task"
+           required />
+    <!--A calendar icon to enter the due date
+      And a priority drop list-->
+    <button id="AddTask" type="submit">Add Task</button>
+  </form>
 
-<form (ngSubmit)="addTask()">
-  <input type="text"
-         [(ngModel)]="newTask"
-         name="task"
-         placeholder="Enter a task"
-         required />
-<!--A calendar icon to enter the due date
-  And a priority drop list-->
-  <button type="submit">Add Task</button>
-</form>
+  <p *ngIf="tasks.length === 0">
+    No Tasks added yet<br />
+    Add one now!
+  </p>
 
-<p *ngIf="tasks.length === 0">No Tasks added yet<br />
-  Add one now!
-</p>
+  <div class="listToDos">
+    @if(tasks.length > 0) {
+    <ul>
+      @for (task of tasks; let i=index ; track i) {
+      <li>
+        <input type="checkbox" (change)="taskDone($event, task)" value="Doing" name="done" />
+        <span [style.textDecoration]="task.status === 'Done'? 'line-through': 'none'" id="title">{{ task.title }}</span>
+        <select @if(task.Priority !=undefined) [(ngModel)]="task.Priority" [name]="'p-' + i">
+          <option [ngValue]="High">High</option>
+          <option [ngValue]="Medium">Medium</option>
+          <option [ngValue]="Low">Low</option>
+        </select>
+        <span id="create">{{ task.createdAt | date: 'shortDate' }}</span>
+        <span id="due">{{ task.DueDate }}</span>
+        <button (click)="removeTask(i)" style="margin-left: 2rem;">Remove</button>
+      </li>
+      }
+    </ul>
+    }
+  </div>
+</body>
 
-<div class="listToDos">
-  <ul *ngIf="tasks.length > 0">
-    <li *ngFor="let task of tasks; let i = index">
-      <span id="title">{{ task.title }}</span>
-      
-      <select [(ngModel)]="task.status" [name]="'status-' + i">
-        <option [ngValue]="'To Do'">To Do</option>
-        <option [ngValue]="'Doing'">Doing</option>
-        <option [ngValue]="'Done'">Done</option>
-      </select>
-      <span id="create">{{ task.createdAt | date: 'shortDate' }}</span>
-      <span id="due">{{ task.DueDate }}</span>
-      <button (onclick)="removeTask(i)" style="margin-left: 2rem;">Remove</button>
-    </li>
-  </ul>
-</div>
-
+<!--camelCase for all
+  fix error-->
 
