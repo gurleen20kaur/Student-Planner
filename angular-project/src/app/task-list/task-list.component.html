@@ -8,6 +8,12 @@
            id="taskInput"
            placeholder="Enter a task"
            required />
+    <select id="setPriority" [(ngModel)]="newPriority" form="taskInput" name="newPriority" title="Select Priority">
+      <option [ngValue]="'undefined'" disabled selected>Select Priority</option>
+      <option [ngValue]="'High'">High</option>
+      <option [ngValue]="'Medium'">Medium</option>
+      <option [ngValue]="'Low'">Low</option>
+    </select>
     <!--A calendar icon to enter the due date
       And a priority drop list-->
     <button id="AddTask" type="submit">Add Task</button>
@@ -21,18 +27,20 @@
   <div class="listToDos">
     @if(tasks.length > 0) {
     <ul>
-      @for (task of tasks; let i=index ; track i) {
+      @for (task of tasks; track task.id) {
       <li>
         <input type="checkbox" (change)="taskDone($event, task)" value="Doing" name="done" />
         <span [style.textDecoration]="task.status === 'Done'? 'line-through': 'none'" id="title">{{ task.title }}</span>
-        <select @if(task.Priority !=undefined) [(ngModel)]="task.Priority" [name]="'p-' + i">
-          <option [ngValue]="High">High</option>
-          <option [ngValue]="Medium">Medium</option>
-          <option [ngValue]="Low">Low</option>
-        </select>
+        @if(task.priority !=undefined) {
+          <select [(ngModel)]="task.priority" [name]="'priority-' + task.id">
+            <option [ngValue]="'High'">High</option>
+            <option [ngValue]="'Medium'">Medium</option>
+            <option [ngValue]="'Low'">Low</option>
+          </select>
+        }
         <span id="create">{{ task.createdAt | date: 'shortDate' }}</span>
-        <span id="due">{{ task.DueDate }}</span>
-        <button (click)="removeTask(i)" style="margin-left: 2rem;">Remove</button>
+        <span id="due">{{ task.dueDate }}</span>
+        <button (click)="removeTask($event, task)" style="margin-left: 2rem;">Remove</button>
       </li>
       }
     </ul>

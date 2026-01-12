@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 interface Task {
+    id: string;
     title: string;
     completed: boolean;
     status: 'To Do' | 'Doing' | 'Done';
-    DueDate?: Date;
-    Priority?: 'Low' | 'Medium' | 'High';
+    dueDate?: Date;
+    priority?: 'Low' | 'Medium' | 'High';
     createdAt: Date;
   }
 
@@ -26,19 +27,22 @@ export class TaskListComponent {
   addTask() {
     if (this.newTask.trim()) {
       const task: Task = {
+        id: crypto.randomUUID(),
         title: this.newTask.trim(),
         completed: false,
         status: 'To Do',
-        DueDate: undefined,
-        Priority: this.newPriority,
+        dueDate: undefined,
+        priority: this.newPriority,
         createdAt: new Date(),
       };
       this.tasks.push(task);
     }
     this.newTask = '';
+    this.newPriority = undefined;
   }
   
-  removeTask(index: number): void {
+  removeTask($event: Event, task: Task): void {
+    const index = this.tasks.findIndex(t => t.id === task.id);
     this.tasks.splice(index, 1);
   }
 
