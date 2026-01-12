@@ -26,9 +26,9 @@
 
   <div class="listToDos">
     @if(tasks.length > 0) {
-    <ul>
+    <ul style="list-style-type: none;">
       @for (task of tasks; track task.id) {
-      <li>
+      <li id="taskListItem">
         <input type="checkbox" (change)="taskDone($event, task)" value="Doing" name="done" />
         <span [style.textDecoration]="task.status === 'Done'? 'line-through': 'none'" id="title">{{ task.title }}</span>
         @if(task.priority !=undefined) {

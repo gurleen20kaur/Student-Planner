@@ -26,11 +26,17 @@ form {
 
 }
 
-li {
+#taskListItem {
   background-color: tan;
   padding: 20px;
   border: 15px solid whitesmoke;
   border-radius: 200px;
+  align-content: normal;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  right: 3%;
+  justify-content: inherit;
 }
 
 #AddTask {
@@ -46,10 +52,6 @@ li {
   background-color: #005fa3;
   color: lightblue
 }
-/*
-span {
-  display: block;
-}*/
 
 span#title {
   padding: 10px;
