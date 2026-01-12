@@ -14,3 +14,19 @@ h1 {
 p {
   color: #4cff00;
 }
+
+.Tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+#todoTab, #calendarTab, #weeklyTab {
+  background-color: ghostwhite;
+  border: 1px solid;
+  border-radius: 15px 15px 0 0;
+  padding: 1rem 2rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
