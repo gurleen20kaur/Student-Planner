@@ -41,7 +41,7 @@ export class TaskListComponent {
     this.newPriority = undefined;
   }
   
-  removeTask($event: Event, task: Task): void {
+  removeTask(task: Task): void {
     const index = this.tasks.findIndex(t => t.id === task.id);
     this.tasks.splice(index, 1);
   }
@@ -53,6 +53,14 @@ export class TaskListComponent {
     } else {
       t.status = 'Doing';
     }
+  }
+
+  removeAllTasks() {
+    this.tasks = [];
+  }
+
+  removeCompletedTasks() { 
+    this.tasks = this.tasks.filter(t => t.status !== 'Done');
   }
 
   get taskTitles(): string {

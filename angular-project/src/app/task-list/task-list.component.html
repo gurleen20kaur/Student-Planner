@@ -40,10 +40,12 @@
         }
         <span id="create">{{ task.createdAt | date: 'shortDate' }}</span>
         <span id="due">{{ task.dueDate }}</span>
-        <button (click)="removeTask($event, task)" style="margin-left: 2rem;">Remove</button>
+        <button (click)="removeTask(task)" style="margin-left: 2rem;">Remove</button>
       </li>
       }
     </ul>
     }
+    <button id="removeAll" (click)="removeAllTasks()" type="button" >Empty To Do List</button>
+    <button id="removeCompleted" (click)=""
   </div>
 </body>

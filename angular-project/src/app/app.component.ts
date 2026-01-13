@@ -18,5 +18,4 @@ export class AppComponent {
     this.currentTab = tab;
     console.log(`Switched to ${tab} view`);
   }
-
 }
