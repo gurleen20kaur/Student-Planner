@@ -1,30 +1,32 @@
-<main>
-  <h1>Welcome {{ Username }} to your Task List!</h1>
-  <div class="Tabs">
-    <div (click)="switchTab('Daily Tasks')" id="todoTab">
-      My Daily To-Do's
+<body>
+  <main>
+    <h1>Welcome {{ Username }} to your Task List!</h1>
+    <div class="Tabs">
+      <div (click)="switchTab('Daily Tasks')" id="todoTab">
+        My Daily To-Do's
+      </div>
+      <div (click)="switchTab('calendar')" id="calendarTab">
+        My Calendar
+      </div>
+      <div (click)="switchTab('weekly')" id="weeklyTab">
+        My Weekly Schedule
+      </div>
     </div>
-    <div (click)="switchTab('calendar')" id="calendarTab">
-      My Calendar
-    </div>
-    <div (click)="switchTab('weekly')" id="weeklyTab">
-      My Weekly Schedule
-    </div>
-  </div>
-  <router-outlet></router-outlet>
-  @if(currentTab==='Daily Tasks') {
-  <app-task-list></app-task-list>
-  }
-  @if(currentTab==='calendar') {
-  <app-calendar-view></app-calendar-view>
-  }
-  @if(currentTab==='weekly') {
-  <app-weekly-view></app-weekly-view>
-  }
-  <div class="TabSwitch">
-    <!--<div @if(currentTab='Daily Tasks') class="Tab" id="Tasks">-->
-    <!--contents of to do tasks-->
+    <router-outlet></router-outlet>
+    @if(currentTab==='Daily Tasks') {
+    <app-task-list></app-task-list>
+    }
+    @if(currentTab==='calendar') {
+    <app-calendar-view></app-calendar-view>
+    }
+    @if(currentTab==='weekly') {
+    <app-weekly-view></app-weekly-view>
+    }
+    <div class="TabSwitch">
+      <!--<div @if(currentTab='Daily Tasks') class="Tab" id="Tasks">-->
+      <!--contents of to do tasks-->
 
-  </div>
-  <!--</div>-->
-</main>
+    </div>
+    <!--</div>-->
+  </main>
+</body>
