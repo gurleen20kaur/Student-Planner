@@ -9,7 +9,6 @@ body {
   flex-direction: column;
 }
 
-
 form {
     display: flex;
     gap: 0.5rem;

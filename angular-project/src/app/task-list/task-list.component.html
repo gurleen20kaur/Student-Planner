@@ -15,7 +15,13 @@
       <option [ngValue]="'Low'">Low</option>
     </select>
     <!--A calendar icon to enter the due date
-      And a priority drop list-->
+    And a priority drop list-->
+    <mat-form-field>
+      <mat-label>Due date</mat-label>
+      <input matInput [matDatepicker]="picker" name="dueDate" [(ngModel)]="newDueDate">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
     <button id="AddTask" type="submit">Add Task</button>
   </form>
 

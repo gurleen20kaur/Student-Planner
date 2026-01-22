@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormField, MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
+
+
 interface Task {
     id: string;
     title: string;
@@ -13,7 +20,8 @@ interface Task {
 
 @Component({
   selector: 'app-task-list',
-  imports: [CommonModule, FormsModule],
+  providers: [provideNativeDateAdapter()],
+  imports: [CommonModule, FormsModule, MatInputModule, MatDatepickerModule, MatInputModule, MatFormFieldModule],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.css'
 })
@@ -22,6 +30,7 @@ export class TaskListComponent {
   newTask: string = '';
   tasks: Task[] = [];
   newPriority = undefined;
+  newDueDate: Date | undefined = undefined;
 
   
   addTask() {
@@ -31,7 +40,7 @@ export class TaskListComponent {
         title: this.newTask.trim(),
         completed: false,
         status: 'To Do',
-        dueDate: undefined,
+        dueDate: this.newDueDate,
         priority: this.newPriority,
         createdAt: new Date(),
       };

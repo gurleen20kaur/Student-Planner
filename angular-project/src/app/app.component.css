@@ -19,13 +19,39 @@ p {
   color: #4cff00;
 }
 
-.Tabs {
+.nav-bar {
+  background-color: aliceblue;
   display: flex;
-  justify-content: center;
-  margin-bottom: 0;
+  margin: 0;
+  padding: 5px;
 }
 
-#todoTab, #calendarTab, #weeklyTab {
+#logo {
+  text-align: left;
+  justify-content: left;
+  width: 150px;
+}
+
+#UserLogin {
+  justify-content: right;
+  display: block;
+  nav-right: initial;
+}
+
+.Tabs {
+  display: flex;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  justify-content: center;
+  margin-bottom: 0;
+  text-decoration: none;
+  text-decoration-line: none;
+}
+
+#dashboardTab, #todoTab, #calendarTab, #weeklyTab {
   background-color: ghostwhite;
   border: 1px solid;
   border-radius: 15px 15px 0 0;
