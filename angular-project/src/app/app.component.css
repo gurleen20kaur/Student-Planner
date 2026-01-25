@@ -3,7 +3,7 @@ body {
 }
 
 main {
-  padding: 2rem;
+  padding: 0;
   font-family: 'Segoe UI', sans-serif;
   background-color: #c85858b8;
   min-height: 100vh;
@@ -22,6 +22,7 @@ p {
 .nav-bar {
   background-color: aliceblue;
   display: flex;
+  justify-content: space-between;
   margin: 0;
   padding: 5px;
 }
@@ -36,12 +37,16 @@ p {
   justify-content: right;
   display: block;
   nav-right: initial;
+  margin: 20px 10px;
 }
 
 .Tabs {
   display: flex;
+  justify-content: space-evenly;
   border-bottom: 2px solid #ccc;
   margin-bottom: 1rem;
+  background-color: aliceblue;
+  padding: 10px;
 }
 
 .tab {
@@ -51,12 +56,16 @@ p {
   text-decoration-line: none;
 }
 
+.tab:hover {
+  background-color: grey;
+}
+
 #dashboardTab, #todoTab, #calendarTab, #weeklyTab {
   background-color: ghostwhite;
   border: 1px solid;
   border-radius: 15px 15px 0 0;
   padding: 1rem 2rem;
-  margin-right: 0.5rem;
   cursor: pointer;
+  margin: 0px 20px 0px 20px;
   font-weight: bold;
 }
