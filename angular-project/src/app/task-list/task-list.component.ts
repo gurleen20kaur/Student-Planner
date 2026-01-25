@@ -7,7 +7,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 
-
 interface Task {
     id: string;
     title: string;
@@ -48,6 +47,7 @@ export class TaskListComponent {
     }
     this.newTask = '';
     this.newPriority = undefined;
+    this.newDueDate = undefined;
   }
   
   removeTask(task: Task): void {
