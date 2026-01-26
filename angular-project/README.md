@@ -13,7 +13,7 @@ Daily To Do's Tab
     + Reorder tasks via drag-and-drop
 
 Calendar Tab
-  + View tasks in a calendar format
+  + View tasks in a calendar format (https://www.npmjs.com/package/angular-calendar)
   + Navigate between months
   + Click on a date to view tasks for that day
   
@@ -21,3 +21,13 @@ Class Schedule Tab
   + View a weekly class schedule
   + Add, edit, and delete classes
   + Color-coded classes based on subject
+
+## Version 2.0
+  + Upcoming Features:
+    + User authentication (login/signup)
+    + Sync tasks with Google Calendar
+    + Add Habit Tracker
+    
+    + Notifications for upcoming tasks and classes
+    + Dark mode option
+  

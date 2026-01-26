@@ -79,7 +79,7 @@ button {
   background-color: #b61818;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 999px;
   cursor: pointer;
 }
 
@@ -94,19 +94,24 @@ span#title {
 
 .action {
   display: flex;
-  gap: 12px;
+  gap: 20px;
   justify-content: left;
   margin-top: 1rem;
 }
 
 #remove-all, #remove-completed {
-  padding: 10px 20px;
-  border-radius: 12px;
+  display: inline-flex;
+  min-width: 200px;
+  padding: 0px 22px;
+  border-radius: 999px;
   border: none;
   background-color: #c51a1a;
   color: white;
   font-weight: 600;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 @media (max-width: 600px){

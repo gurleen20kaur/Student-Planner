@@ -23,7 +23,7 @@ p {
   background-color: aliceblue;
   display: flex;
   justify-content: space-between;
-  margin: 0;
+  border: 15px solid aliceblue;
   padding: 5px;
 }
 
