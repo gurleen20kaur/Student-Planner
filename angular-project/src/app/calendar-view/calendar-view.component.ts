@@ -1,12 +1,36 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { DateAdapter, provideCalendar, CalendarPreviousViewDirective, CalendarTodayDirective, CalendarNextViewDirective, CalendarMonthViewComponent, CalendarWeekViewComponent, CalendarDayViewComponent, CalendarEvent, CalendarView, CalendarDatePipe } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
 
 @Component({
   selector: 'app-calendar-view',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, CalendarPreviousViewDirective, CalendarTodayDirective, CalendarNextViewDirective, CalendarMonthViewComponent, CalendarWeekViewComponent, CalendarDayViewComponent, CalendarDatePipe],
+  providers: [
+    provideCalendar({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+  ],
   templateUrl: './calendar-view.component.html',
   styleUrl: './calendar-view.component.css'
 })
-export class CalendarViewComponent {
 
+export class CalendarViewComponent {
+  readonly CalendarView = CalendarView;
+  view: CalendarView = CalendarView.Month;
+  viewDate = new Date();
+  events: CalendarEvent[] = [
+    {
+      start: new Date(),
+      title: 'An event',
+    },
+  ];
+
+  setView(view: CalendarView) {
+    this.view = view;
+  }
+}
 }
