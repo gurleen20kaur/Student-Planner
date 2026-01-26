@@ -8,7 +8,12 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
   selector: 'app-calendar-view',
   standalone: true,
   imports: [CalendarModule, CommonModule, CalendarPreviousViewDirective, CalendarTodayDirective, CalendarNextViewDirective, CalendarMonthViewComponent, CalendarWeekViewComponent, CalendarDayViewComponent, CalendarDatePipe],
-  CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+  providers: [
+    provideCalendar({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+  ],
   templateUrl: './calendar-view.component.html',
   styleUrl: './calendar-view.component.css'
 })
@@ -28,4 +33,4 @@ export class CalendarViewComponent {
     this.view = view;
   }
 }
-}
+

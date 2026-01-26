@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { TaskListComponent } from './task-list/TaskListComponent';
+import { TaskListComponent } from './task-list/task-list.component';
 import { CalendarViewComponent } from './calendar-view/calendar-view.component';
 import { WeeklyViewComponent } from './weekly-view/weekly-view.component';
 import { DashBoardComponent } from './dash-board/dash-board.component'; 
