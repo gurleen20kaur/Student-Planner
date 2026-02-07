@@ -38,6 +38,7 @@ p {
   display: block;
   nav-right: initial;
   margin: 20px 10px;
+  border-radius: 999px;
 }
 
 .Tabs {
@@ -50,22 +51,32 @@ p {
 }
 
 .tab {
+  display: inline-flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 0;
   text-decoration: none;
   text-decoration-line: none;
-}
-
-.tab:hover {
-  background-color: grey;
-}
-
-#dashboardTab, #todoTab, #calendarTab, #weeklyTab {
+  color: black;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
   background-color: ghostwhite;
-  border: 1px solid;
-  border-radius: 15px 15px 0 0;
+  box-shadow: inset 0.5px 0 0 1px #ccc;
+  border-radius: 999px;
   padding: 1rem 2rem;
   cursor: pointer;
   margin: 0px 20px 0px 20px;
-  font-weight: bold;
+  font-weight: bolder;
 }
+
+  .tab.active {
+    background-color: cornflowerblue;
+    color: whitesmoke;
+    box-shadow: 0.5px;
+  }
+
+  .tab:hover {
+    background-color: azure;
+    color: black;
+  }

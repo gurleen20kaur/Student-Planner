@@ -5,18 +5,13 @@
       <button id="UserLogin">UserLogin</button>
     </div>
     <div class="Tabs">
-      <a routerLink="/dashboard" class="tab" id="dashboardTab">Dashboard</a>
-      <a routerLink="/todo" class="tab" id="todoTab">My Daily To-Do's</a>
-      <a routerLink="/calendar" class="tab" id="calendarTab">My Calendar</a>
-      <a routerLink="/weekly-schedule" class="tab" id="weeklyTab">My Weekly Schedule</a>
+      <a routerLinkActive="active" routerLink="/dashboard" class="tab" id="dashboardTab">Dashboard</a>
+      <a routerLinkActive="active" routerLink="/todo" class="tab" id="todoTab">My Daily To-Do's</a>
+      <a routerLinkActive="active" routerLink="/calendar" class="tab" id="calendarTab">My Calendar</a>
+      <a routerLinkActive="active" routerLink="/weekly-schedule" class="tab" id="weeklyTab">My Weekly Schedule</a>
     </div>
     <h1>Welcome {{ userName }} to your Task List!</h1>
     <router-outlet></router-outlet>
-    <!--<app-dash-board [tasks]="tasks"></app-dash-board>-->
-
-    <!--<app-task-list [tasks]="tasks"-->
-                   <!--(tasksChange)="onTasksChange($event)">
-    </app-task-list>-->
 
   </main>
 </body>
