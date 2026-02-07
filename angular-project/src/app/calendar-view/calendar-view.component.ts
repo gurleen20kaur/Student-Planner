@@ -22,6 +22,7 @@ export class CalendarViewComponent {
   readonly CalendarView = CalendarView;
   view: CalendarView = CalendarView.Month;
   viewDate = new Date();
+  activeDayIsOpen = true;
   events: CalendarEvent[] = [
     {
       start: new Date(),
@@ -31,6 +32,10 @@ export class CalendarViewComponent {
 
   setView(view: CalendarView) {
     this.view = view;
+  }
+
+  closeOpenMonthViewDay() {
+    this.activeDayIsOpen = false;
   }
 }
 
