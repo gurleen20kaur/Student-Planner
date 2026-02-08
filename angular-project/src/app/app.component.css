@@ -1,15 +1,82 @@
-.main {
-  text-align: center;
-  padding: 2rem;
+body {
+  margin: 0 !important;
+}
+
+main {
+  padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #fdf6f0;
+  background-color: #c85858b8;
   min-height: 100vh;
+  margin: 0;
 }
 
 h1 {
-  color: #5c2d90;
+  color: #a41515;
+  text-align: center;
 }
 
 p {
   color: #4cff00;
 }
+
+.nav-bar {
+  background-color: aliceblue;
+  display: flex;
+  justify-content: space-between;
+  border: 15px solid aliceblue;
+  padding: 5px;
+}
+
+#logo {
+  text-align: left;
+  justify-content: left;
+  width: 150px;
+}
+
+#UserLogin {
+  justify-content: right;
+  display: block;
+  nav-right: initial;
+  margin: 20px 10px;
+  border-radius: 999px;
+}
+
+.Tabs {
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 1rem;
+  background-color: aliceblue;
+  padding: 10px;
+}
+
+.tab {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  text-decoration: none;
+  text-decoration-line: none;
+  color: black;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  background-color: ghostwhite;
+  box-shadow: inset 0.5px 0 0 1px #ccc;
+  border-radius: 999px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  margin: 0px 20px 0px 20px;
+  font-weight: bolder;
+}
+
+  .tab.active {
+    background-color: cornflowerblue;
+    color: whitesmoke;
+    box-shadow: 0.5px;
+  }
+
+  .tab:hover {
+    background-color: azure;
+    color: black;
+  }

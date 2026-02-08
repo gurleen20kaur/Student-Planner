@@ -1,10 +1,12 @@
-.debug-box {
-    background:#f9f9f9; 
-    padding:10px; 
-    border:1px solid #ccc;
-    margin-bottom: 1-rem;
-    border-radius: 5px;
-    font-size: 0.9rem;
+
+.page {
+  background-color: whitesmoke;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 1450px;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 form {
@@ -13,22 +15,112 @@ form {
     margin-bottom: 1rem;
 }
 
-input[type="text"] {
-  flex: 1;
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+.listToDos{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-button {
+
+#set-priority {
+  width: 160px;
+  height: 55px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 0 10px;
+  background: white;
+}
+
+.task-input {
+  flex: 1;
+  height: 55px;
+  padding: 0 14px;
+  border: 1px #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+#task-input {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 0 auto;
+  height: 22px;
+}
+
+#taskListItem {
+  background-color: tan;
+  padding: 12px 16px;
+  border: 15px solid whitesmoke;
+  border-radius: 200px;
+  align-items: center;
+  margin: 0 auto;
+  display: flex;
+  width: 90%;
+
+}
+
+#AddTask {
   padding: 0.5rem 1rem;
+  height: 55px;
   background-color: #007acc;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
-button:hover {
+button {
+  padding: 0rem 1rem;
+  margin-right: 20px;
+  height: 30px;
+  width: 160px;
+  background-color: #b61818;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+#AddTask:hover {
   background-color: #005fa3;
+  color: lightblue
+}
+
+span#title {
+  padding: 10px;
+}
+
+.action {
+  display: flex;
+  gap: 20px;
+  justify-content: left;
+  margin-top: 1rem;
+}
+
+#remove-all, #remove-completed {
+  display: inline-flex;
+  min-width: 200px;
+  padding: 0px 22px;
+  border-radius: 999px;
+  border: none;
+  background-color: #c51a1a;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px){
+  form{
+    flex-direction:column;
+  }
+
+  input[type="text"],
+  button{
+    width: 100%;
+  }
 }

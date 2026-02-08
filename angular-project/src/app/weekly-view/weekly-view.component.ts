@@ -5,8 +5,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 
 @Component({
-  selector: 'app-calendar-view',
-  standalone: true,
+  selector: 'app-weekly-view',
   imports: [CalendarModule, CommonModule, CalendarPreviousViewDirective, CalendarTodayDirective, CalendarNextViewDirective, CalendarMonthViewComponent, CalendarWeekViewComponent, CalendarDayViewComponent, CalendarDatePipe],
   providers: [
     provideCalendar({
@@ -14,13 +13,12 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
       useFactory: adapterFactory,
     }),
   ],
-  templateUrl: './calendar-view.component.html',
-  styleUrl: './calendar-view.component.css'
+  templateUrl: './weekly-view.component.html',
+  styleUrl: './weekly-view.component.css'
 })
-
-export class CalendarViewComponent {
+export class WeeklyViewComponent {
   readonly CalendarView = CalendarView;
-  view: CalendarView = CalendarView.Month;
+  view: CalendarView = CalendarView.Week;
   viewDate = new Date();
   activeDayIsOpen = true;
   events: CalendarEvent[] = [
@@ -38,4 +36,3 @@ export class CalendarViewComponent {
     this.activeDayIsOpen = false;
   }
 }
-

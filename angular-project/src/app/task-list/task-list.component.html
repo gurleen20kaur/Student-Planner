@@ -1,22 +1,63 @@
-<h2>My Tasks</h2>
+<body>
+  <div class="page">
+    <h2>My Daily To-Do's</h2>
 
-<section class="debug-box">
-  <h3>Debug Info</h3>
-  <p><strong>newTask:</strong> {{ newTask }}</p>
-  <p><strong>All tasks:</strong> {{ tasks }}</p>
-</section>
+    <div class="task-input">
+      <form (ngSubmit)="addTask()">
+        <input type="text"
+               [(ngModel)]="newTask"
+               name="task"
+               id="task-input"
+               placeholder="Enter a task"
+               required />
+        <select id="set-priority" [(ngModel)]="newPriority" form="taskInput" name="newPriority" title="Select Priority">
+          <option [ngValue]="'undefined'" disabled selected>Select Priority</option>
+          <option [ngValue]="'High'">High</option>
+          <option [ngValue]="'Medium'">Medium</option>
+          <option [ngValue]="'Low'">Low</option>
+        </select>
+        <!--A calendar icon to enter the due date
+        And a priority drop list-->
+        <mat-form-field>
+          <mat-label>Due Date</mat-label>
+          <input matInput [matDatepicker]="picker" name="dueDate" [(ngModel)]="newDueDate">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <button id="AddTask" type="submit">Add Task</button>
+      </form>
+    </div>
 
-<form (ngSubmit)="addTask()">
-  <input type="text"
-         [(ngModel)]="newTask"
-         name="task"
-         placeholder="Enter a task"
-         required />
-  <button type="submit">Add Task</button>
-</form>
+    <p *ngIf="tasks.length === 0">
+      No Tasks added yet<br />
+      Add one now!
+    </p>
 
-<ul>
-  <li @for="let task of tasks">
-    {{ task }}
-  </li>
-</ul>
+    <div class="listToDos">
+      @if(tasks.length > 0) {
+      <ul style="list-style-type: none;">
+        @for (task of tasks; track task.id) {
+        <li id="taskListItem">
+          <input type="checkbox" (change)="taskDone($event, task)" value="Doing" name="done" />
+          <span [style.textDecoration]="task.status === 'Done'? 'line-through': 'none'" id="title">{{ task.title }}</span>
+          @if(task.priority !=undefined) {
+          <select [(ngModel)]="task.priority" [name]="'priority-' + task.id">
+            <option [ngValue]="'High'">High</option>
+            <option [ngValue]="'Medium'">Medium</option>
+            <option [ngValue]="'Low'">Low</option>
+          </select>
+          }
+          <span id="create">{{ task.createdAt | date: 'shortDate' }}</span>
+          <span id="due">{{ task.dueDate | date: 'shortDate'}}</span>
+          <button (click)="removeTask(task)" style="margin-left: 2rem;">Remove</button>
+        </li>
+        }
+      </ul>
+      <div class="action">
+        <button id="remove-all" (click)="removeAllTasks()" type="button">Empty To Do List</button>
+        <button id="remove-completed" (click)="removeCompletedTasks()">Remove Completed Tasks</button>
+      </div>
+        }
+    </div>
+  </div>
+</body>

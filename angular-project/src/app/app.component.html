@@ -1,4 +1,17 @@
-<main>
-  <h1>Welcome to The Task List!</h1>
-  <router-outlet></router-outlet>
-</main>
+<body>
+  <main>
+    <div class="nav-bar">
+      <h4 id="logo">Student Planner</h4>
+      <button id="UserLogin">UserLogin</button>
+    </div>
+    <div class="Tabs">
+      <a routerLinkActive="active" routerLink="/dashboard" class="tab" id="dashboardTab">Dashboard</a>
+      <a routerLinkActive="active" routerLink="/todo" class="tab" id="todoTab">My Daily To-Do's</a>
+      <a routerLinkActive="active" routerLink="/calendar" class="tab" id="calendarTab">My Calendar</a>
+      <a routerLinkActive="active" routerLink="/weekly-schedule" class="tab" id="weeklyTab">My Weekly Schedule</a>
+    </div>
+    <h1>Welcome {{ userName }} to your Task List!</h1>
+    <router-outlet></router-outlet>
+
+  </main>
+</body>
