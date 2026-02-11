@@ -10,6 +10,7 @@ import { Input, Output, EventEmitter } from '@angular/core';
 
 import { TaskListService } from '../task.service';
 import { Task, Priority, Status } from '../models/task.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-task-list',
@@ -20,12 +21,13 @@ import { Task, Priority, Status } from '../models/task.model';
 })
 
 export class TaskListComponent {
-  constructor(private taskListService: TaskListService) { }
-  //tasks$ = this.taskListService.tasks$;
+  tasks$: Observable<Task[]>;
   newTask: string = '';
   newPriority: 'Low' | 'Medium' | 'High' | undefined = undefined;
   newDueDate: Date | undefined = undefined;
   newStatus: 'To Do' | 'Doing' | 'Done' = 'To Do';
+
+  constructor(private taskListService: TaskListService) { tasks$ = this.taskListService.tasks$; }
 
   addTask() {
     if (!this.newTask.trim()) return;
