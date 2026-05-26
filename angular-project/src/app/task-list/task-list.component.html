@@ -28,36 +28,38 @@
       </form>
     </div>
 
-    <p *ngIf="tasks.length === 0">
-      No Tasks added yet<br />
-      Add one now!
-    </p>
+    @if((tasks$ | async)?.length === 0) {
+      <p>
+        No Tasks added yet<br />
+        Add one now!
+      </p>
+    }
 
     <div class="listToDos">
-      @if(tasks.length > 0) {
-      <ul style="list-style-type: none;">
-        @for (task of tasks; track task.id) {
-        <li id="taskListItem">
-          <input type="checkbox" (change)="taskDone($event, task)" value="Doing" name="done" />
-          <span [style.textDecoration]="task.status === 'Done'? 'line-through': 'none'" id="title">{{ task.title }}</span>
-          @if(task.priority !=undefined) {
-          <select [(ngModel)]="task.priority" [name]="'priority-' + task.id">
-            <option [ngValue]="'High'">High</option>
-            <option [ngValue]="'Medium'">Medium</option>
-            <option [ngValue]="'Low'">Low</option>
-          </select>
+      @if(tasks$ | async; as tasks) {
+        @if(tasks.length > 0) {
+          <ul style="list-style-type: none;">
+          @for (task of (tasks$ | async) ?? []; track task.id) {
+          <li id="taskListItem">
+            <input type="checkbox" (change)="taskDone($event, task)" value="Doing" name="done" />
+            <span [style.textDecoration]="task.status === 'Done'? 'line-through': 'none'" id="title">{{ task.title }}</span>
+            @if(task.priority !=undefined) {
+            <select [(ngModel)]="task.priority" [name]="'priority-' + task.id">
+              <option [ngValue]="'High'">High</option>
+              <option [ngValue]="'Medium'">Medium</option>
+              <option [ngValue]="'Low'">Low</option>
+            </select>
+            }
+            <span id="create">{{ task.createdAt | date: 'shortDate' }}</span>
+            <span id="due">{{ task.dueDate | date: 'shortDate'}}</span>
+            <button (click)="removeTask(task)" style="margin-left: 2rem;">Remove</button>
+          </li>
           }
-          <span id="create">{{ task.createdAt | date: 'shortDate' }}</span>
-          <span id="due">{{ task.dueDate | date: 'shortDate'}}</span>
-          <button (click)="removeTask(task)" style="margin-left: 2rem;">Remove</button>
-        </li>
+        </ul>
+        <div class="action">
+          <button id="remove-all" (click)="removeAllTasks()" type="button">Empty To Do List</button>
+          <button id="remove-completed" (click)="removeCompletedTasks()">Remove Completed Tasks</button>
+        </div>
+          }
         }
-      </ul>
-      <div class="action">
-        <button id="remove-all" (click)="removeAllTasks()" type="button">Empty To Do List</button>
-        <button id="remove-completed" (click)="removeCompletedTasks()">Remove Completed Tasks</button>
-      </div>
-        }
-    </div>
   </div>
-</body>

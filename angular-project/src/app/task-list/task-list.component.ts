@@ -5,8 +5,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { MatIconModule } from '@angular/material/icon';
-import { Input, Output, EventEmitter } from '@angular/core';
 
 import { TaskListService } from '../task.service';
 import { Task, Priority, Status } from '../models/task.model';
@@ -27,7 +25,7 @@ export class TaskListComponent {
   newDueDate: Date | undefined = undefined;
   newStatus: 'To Do' | 'Doing' | 'Done' = 'To Do';
 
-  constructor(private taskListService: TaskListService) { tasks$ = this.taskListService.tasks$; }
+  constructor(private taskListService: TaskListService) { this.tasks$ = this.taskListService.tasks$; }
 
   addTask() {
     if (!this.newTask.trim()) return;
