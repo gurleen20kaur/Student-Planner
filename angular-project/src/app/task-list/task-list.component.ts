@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
 
 import { TaskListService } from '../task.service';
-import { Task, Priority, Status } from '../models/task.model';
+import { Task } from '../models/task.model';
 import { Observable } from 'rxjs';
 
 @Component({

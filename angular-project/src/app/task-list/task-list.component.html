@@ -42,7 +42,7 @@
           @for (task of (tasks$ | async) ?? []; track task.id) {
           <li id="taskListItem">
             <input type="checkbox" (change)="taskDone($event, task)" value="Doing" name="done" />
-            <span [style.textDecoration]="task.status === 'Done'? 'line-through': 'none'" id="title">{{ task.title }}</span>
+            <span [style.textDecoration]="task.status === 'Done'? 'line-through': 'none'" id= "title">{{ task.title }}</span>
             @if(task.priority !=undefined) {
             <select [(ngModel)]="task.priority" [name]="'priority-' + task.id">
               <option [ngValue]="'High'">High</option>
