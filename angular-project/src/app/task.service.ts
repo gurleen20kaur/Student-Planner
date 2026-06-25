@@ -49,5 +49,21 @@ export class TaskListService {
   removeCompleted() {
     this.tasksSubject.next(this.tasks.filter(t => t.status !== 'Done'));
   }
+
+  updatePriority(id: string, priority: Priority) {
+    const updated = this.tasks.map(t =>
+      t.id === id ? { ...t, priority } : t
+    );
+    this.tasksSubject.next(updated);
+  }
+
+  updateStatus(id: string, status: Status) {
+    const updated = this.tasks.map(t =>
+      t.id === id
+        ? { ...t, status, completed: status === 'Done' }
+        : t
+    );
+    this.tasksSubject.next(updated);
+  }
 }
 

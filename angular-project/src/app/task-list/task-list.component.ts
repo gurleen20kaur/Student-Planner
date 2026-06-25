@@ -54,4 +54,14 @@ export class TaskListComponent {
   removeCompletedTasks() {
     this.taskListService.removeCompleted();
   }
+
+  onPriorityChange(task: Task, event: Event) {
+    const select = event.target as HTMLSelectElement;
+    this.taskListService.updatePriority(task.id, select.value as Priority);
+  }
+
+  onStatusChange(task: Task, event: Event) {
+    const select = event.target as HTMLSelectElement;
+    this.taskListService.updateStatus(task.id, select.value as Status);
+  }
 }

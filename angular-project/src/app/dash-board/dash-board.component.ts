@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Input } from '@angular/core';
 import { TaskListComponent } from '../task-list/task-list.component';
-import { Task } from '../app.component'
+import { Task } from '../models/task.model';
 
 @Component({
   selector: 'app-dash-board',

@@ -44,10 +44,10 @@
             <input type="checkbox" (change)="taskDone($event, task)" value="Doing" name="done" />
             <span [style.textDecoration]="task.status === 'Done'? 'line-through': 'none'" id= "title">{{ task.title }}</span>
             @if(task.priority !=undefined) {
-            <select [(ngModel)]="task.priority" [name]="'priority-' + task.id">
-              <option [ngValue]="'High'">High</option>
-              <option [ngValue]="'Medium'">Medium</option>
-              <option [ngValue]="'Low'">Low</option>
+            <select [value]="task.priority" (change)="onPriorityChange(task, $event)" [name]="'priority-' + task.id">
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
             </select>
             }
             <span id="create">{{ task.createdAt | date: 'shortDate' }}</span>

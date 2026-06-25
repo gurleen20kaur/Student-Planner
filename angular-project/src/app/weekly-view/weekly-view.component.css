@@ -9,6 +9,34 @@
   gap: 1.25rem;
 }
 
+/* ── Task event blocks ────────────────────────────────────────────────────── */
+/* Week view renders events as vertical blocks in time slots.
+   These styles make them look like compact labeled rectangles. */
+
+::ng-deep .cal-event {
+  border-radius: 4px !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  padding: 2px 6px !important;
+  cursor: pointer;
+}
+
+::ng-deep .cal-event-dot {
+  display: none !important;
+}
+
+::ng-deep .cal-event-title {
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+}
+
+/* Week view: make all-day event row visible */
+::ng-deep .cal-all-day-events .cal-event {
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+}
+
 .btn-container {
   display: flex;
   gap: 0.5rem;
